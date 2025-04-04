@@ -1,8 +1,19 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const CTASection = () => {
+  const { toast } = useToast();
+
+  const handleGetStarted = () => {
+    toast({
+      title: "Free Trial",
+      description: "Thank you for your interest! Free trial signup will be available soon.",
+      variant: "default",
+    });
+  };
+
   return (
     <section className="py-20 px-4 md:px-0">
       <div className="container mx-auto">
@@ -44,7 +55,11 @@ const CTASection = () => {
             </div>
             
             <div>
-              <Button size="lg" className="gap-2 bg-white text-skillplay-purple hover:bg-white/90">
+              <Button 
+                size="lg" 
+                className="gap-2 bg-white text-skillplay-purple hover:bg-white/90"
+                onClick={handleGetStarted}
+              >
                 Get Started Free
                 <ArrowRight className="h-5 w-5" />
               </Button>

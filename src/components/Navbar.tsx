@@ -3,9 +3,25 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mic, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { toast } = useToast();
+
+  const handleSignIn = () => {
+    toast({
+      title: "Sign In",
+      description: "Sign in functionality will be implemented soon.",
+    });
+  };
+
+  const handleGetStarted = () => {
+    toast({
+      title: "Get Started",
+      description: "Thank you for your interest! Account creation will be available soon.",
+    });
+  };
 
   return (
     <nav className="fixed w-full bg-background/80 backdrop-blur-sm z-50 border-b">
@@ -19,13 +35,13 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-8">
           <div className="flex gap-6">
             <Link to="/" className="nav-link-active">Home</Link>
-            <Link to="/courses" className="nav-link">Courses</Link>
-            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/dashboard" className="nav-link">Dashboard</Link>
+            <Link to="/game" className="nav-link">Game</Link>
           </div>
           
           <div className="flex gap-3">
-            <Button variant="outline">Sign In</Button>
-            <Button className="btn-gradient">Get Started</Button>
+            <Button variant="outline" onClick={handleSignIn}>Sign In</Button>
+            <Button className="btn-gradient" onClick={handleGetStarted}>Get Started</Button>
           </div>
         </div>
         
@@ -52,22 +68,22 @@ const Navbar = () => {
               Home
             </Link>
             <Link 
-              to="/courses" 
+              to="/dashboard" 
               className="nav-link py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Courses
+              Dashboard
             </Link>
             <Link 
-              to="/about" 
+              to="/game" 
               className="nav-link py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              Game
             </Link>
             <div className="flex flex-col gap-3 pt-2">
-              <Button variant="outline">Sign In</Button>
-              <Button className="btn-gradient">Get Started</Button>
+              <Button variant="outline" onClick={handleSignIn}>Sign In</Button>
+              <Button className="btn-gradient" onClick={handleGetStarted}>Get Started</Button>
             </div>
           </div>
         </div>
