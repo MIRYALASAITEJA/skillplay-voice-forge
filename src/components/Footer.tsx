@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Mic } from "lucide-react";
 
@@ -68,7 +69,7 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} SkillPlay. All rights reserved.
             </p>
             <p className="text-white/60 text-sm">
-              Made by <span className="text-skillplay-purple font-medium">Sai Teja Miryala</span>
+              Made by <span className="text-skillplay-purple font-medium">Sai Teja Miryala</span> and <span className="text-skillplay-purple font-medium">Sai Koushik</span>
             </p>
           </div>
           <div className="mt-4 md:mt-0">
