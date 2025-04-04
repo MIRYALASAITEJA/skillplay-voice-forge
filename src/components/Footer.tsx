@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Mic } from "lucide-react";
 
@@ -64,9 +63,14 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/10 mt-12 pt-6 text-center md:flex md:justify-between md:text-left">
-          <p className="text-white/60 text-sm">
-            &copy; {new Date().getFullYear()} SkillPlay. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center gap-2">
+            <p className="text-white/60 text-sm">
+              &copy; {new Date().getFullYear()} SkillPlay. All rights reserved.
+            </p>
+            <p className="text-white/60 text-sm">
+              Made by <span className="text-skillplay-purple font-medium">Sai Teja Miryala</span>
+            </p>
+          </div>
           <div className="mt-4 md:mt-0">
             <ul className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-white/60">
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms</Link></li>
