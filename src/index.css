@@ -92,6 +92,10 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(at 100% 0%, rgba(155, 135, 245, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(30, 174, 219, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
   }
 
   /* Smooth scrolling */
@@ -134,4 +138,69 @@
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:border-skillplay-purple/30;
   }
+  
+  /* Enhanced glass card styles */
+  .glass-card-premium {
+    @apply bg-white/10 backdrop-blur-lg rounded-xl border border-white/20 
+    shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-300 
+    hover:shadow-[0_8px_32px_rgba(155,135,245,0.15)]
+    hover:border-skillplay-purple/30;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(155,135,245,0.05) 100%);
+  }
+  
+  /* Glow effect */
+  .glow-purple {
+    @apply relative;
+    box-shadow: 0 0 25px 3px rgba(155, 135, 245, 0.2);
+  }
+  
+  .glow-blue {
+    @apply relative;
+    box-shadow: 0 0 25px 3px rgba(30, 174, 219, 0.2);
+  }
+  
+  /* Shimmering animation for interactive elements */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer::after {
+    content: '';
+    @apply absolute top-0 left-[-100%] w-[200%] h-full;
+    background: linear-gradient(90deg, 
+      rgba(255,255,255,0) 0%, 
+      rgba(255,255,255,0.1) 50%, 
+      rgba(255,255,255,0) 100%);
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    to {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Enhanced button styles */
+  .btn-3d {
+    @apply relative bg-gradient-to-br from-skillplay-purple to-skillplay-blue 
+    text-white py-2 px-4 rounded-lg font-medium transition-all duration-300
+    hover:shadow-lg active:translate-y-0.5 active:shadow-sm;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  }
+}
+
+@keyframes pulse-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(155, 135, 245, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(155, 135, 245, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(155, 135, 245, 0);
+  }
+}
+
+.pulse-border {
+  animation: pulse-border 2s infinite;
 }
